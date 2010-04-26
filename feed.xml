@@ -1,0 +1,22 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+   <title>Eltados' blog</title>
+   <link type="text/html" rel="alternate" href="http://eltados.github.com"/>
+   <author>
+      <name>Eltados</name>
+   </author>
+   {% for post in site.posts limit:20 %}
+   <entry>
+       <title>{{ post.title }}</title>
+       <link rel="alternate" type="text/html" href="{{post.url}}" />
+       <id>{{post.id}}</id>
+       <published>{{post.date}}</published>
+       <author>
+         <name>Eltados</name>
+         <uri>http://eltados.github.com/</uri>
+       </author>
+       <content type="html" xml:lang="en" xml:base="http://eltados.github.com/">
+         <![CDATA[{{post.content}}]]>
+       </content>
+     </entry>
+   {% endfor %}
+</feed>
